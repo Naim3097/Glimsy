@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add to Cart | Glimsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="cart">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">glimsy</a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="influencers.html">Influencer</a>
+          <a href="shop.html">Shop</a>
+          <a href="cart.html" class="active">Cart (<span data-cart-count>0</span>)</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container two-column-layout">
+        <section class="panel-card">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Your shopping bag</span>
+              <h1>Add to cart page</h1>
+            </div>
+          </div>
+          <div id="cart-items" class="cart-items"></div>
+        </section>
+
+        <aside class="panel-card summary-card">
+          <h2>Order summary</h2>
+          <div class="summary-row"><span>Subtotal</span><strong id="subtotal-value">Rp0</strong></div>
+          <div class="summary-row"><span>Shipping</span><strong id="shipping-value">Rp15.000</strong></div>
+          <div class="summary-row total"><span>Total</span><strong id="total-value">Rp15.000</strong></div>
+          <a class="btn btn-primary full-width" href="checkout.html">Proceed to checkout</a>
+          <a class="btn btn-secondary full-width" href="influencers.html">Continue browsing</a>
+          <p class="subtle-note">Window shopping is always welcome before checkout.</p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <strong>glimsy</strong>
+          <p>Easy, minimal cart experience.</p>
+        </div>
+        <p>Every item connects back to the influencer’s story.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

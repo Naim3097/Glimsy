@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Glimsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="checkout">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">glimsy</a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="influencers.html">Influencer</a>
+          <a href="shop.html">Shop</a>
+          <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container two-column-layout">
+        <section class="panel-card">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Secure checkout</span>
+              <h1>Checkout page</h1>
+            </div>
+          </div>
+
+          <form id="checkout-form" class="checkout-form">
+            <div class="form-grid">
+              <label>
+                Full name
+                <input type="text" placeholder="Alya Putri" required />
+              </label>
+              <label>
+                Email
+                <input type="email" placeholder="alya@email.com" required />
+              </label>
+              <label>
+                Phone number
+                <input type="tel" placeholder="0812-0000-0000" required />
+              </label>
+              <label>
+                City
+                <input type="text" placeholder="Jakarta" required />
+              </label>
+            </div>
+
+            <label>
+              Delivery address
+              <textarea rows="4" placeholder="Street, building, district, postal code" required></textarea>
+            </label>
+
+            <div class="form-grid">
+              <label>
+                Courier
+                <select required>
+                  <option value="">Select courier</option>
+                  <option>Instant delivery</option>
+                  <option>Regular shipping</option>
+                  <option>Next day</option>
+                </select>
+              </label>
+              <label>
+                Payment method
+                <select required>
+                  <option value="">Select payment</option>
+                  <option>Virtual account</option>
+                  <option>E-wallet</option>
+                  <option>Credit / debit card</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Notes for seller
+              <textarea rows="3" placeholder="Please pack softly for gifting."></textarea>
+            </label>
+
+            <button type="submit" class="btn btn-primary full-width">Place order</button>
+          </form>
+        </section>
+
+        <aside class="panel-card summary-card">
+          <h2>Your order</h2>
+          <div id="checkout-summary" class="checkout-summary"></div>
+          <div class="summary-row"><span>Shipping</span><strong>Rp15.000</strong></div>
+          <div class="summary-row total"><span>Total payable</span><strong id="checkout-total">Rp15.000</strong></div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <strong>glimsy</strong>
+          <p>Fast checkout for every fashion mood.</p>
+        </div>
+        <p>Built to feel soft, clean, and easy to trust.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

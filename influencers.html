@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Influencers | Glimsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="influencers">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">glimsy</a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="influencers.html" class="active">Influencer</a>
+          <a href="shop.html">Shop</a>
+          <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+
+        <div class="inf-list-header">
+          <div>
+            <h1>Find Your Muse</h1>
+            <p>Follow influencers whose style speaks to you — then shop their closet.</p>
+          </div>
+        </div>
+
+        <div class="inf-list-toolbar">
+          <div class="cat-filters" id="inf-filters">
+            <button class="cat-pill active" data-inf-cat="all">All</button>
+            <button class="cat-pill" data-inf-cat="modest">Modest Fashion</button>
+            <button class="cat-pill" data-inf-cat="minimal">Minimalist</button>
+            <button class="cat-pill" data-inf-cat="street">Street Style</button>
+            <button class="cat-pill" data-inf-cat="traditional">Traditional</button>
+          </div>
+        </div>
+
+        <p class="shop-count" id="inf-count"></p>
+        <div class="inf-grid" id="inf-grid"></div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <strong>glimsy</strong>
+          <p>Social inspiration, then direct purchase.</p>
+        </div>
+        <p>Designed for a soft and minimal women's shopping journey.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

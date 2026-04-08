@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | Glimsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="shop">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">glimsy</a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="influencers.html">Influencer</a>
+          <a href="shop.html" class="active">Shop</a>
+          <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+
+        <div class="shop-page-header">
+          <div>
+            <h1>Shop the Look</h1>
+            <p>Curated by <a href="influencer.html">@amanina_zakaria</a></p>
+          </div>
+        </div>
+
+        <div class="shop-toolbar">
+          <div class="cat-filters" id="cat-filters">
+            <button class="cat-pill active" data-cat="all">All</button>
+            <button class="cat-pill" data-cat="abaya">Abaya</button>
+            <button class="cat-pill" data-cat="skirt">Skirt</button>
+            <button class="cat-pill" data-cat="scarf">Scarf</button>
+            <button class="cat-pill" data-cat="top">Top</button>
+            <button class="cat-pill" data-cat="bottom">Bottom</button>
+          </div>
+          <div class="shop-sort">
+            <select id="shop-sort" aria-label="Sort products">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="shop-count" id="shop-count"></p>
+        <div class="shop-grid" id="shop-grid"></div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <strong>glimsy</strong>
+          <p>Social inspiration, then direct purchase.</p>
+        </div>
+        <p>Designed for a soft and minimal women's shopping journey.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

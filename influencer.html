@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amanina Zakaria | Glimsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="influencer">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">glimsy</a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="influencers.html" class="active">Influencer</a>
+          <a href="shop.html">Shop</a>
+          <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+
+        <!-- Section 1: Profile -->
+        <section class="profile-hero">
+          <div class="hero-slider" id="hero-slider">
+            <div class="hero-slides" id="hero-slides"></div>
+            <button class="hero-prev" onclick="heroSlide(-1)" aria-label="Previous">&#8249;</button>
+            <button class="hero-next" onclick="heroSlide(1)" aria-label="Next">&#8250;</button>
+            <div class="hero-dots" id="hero-dots"></div>
+          </div>
+          <div class="profile-box">
+            <div class="profile-avatar-large">
+              <img src="img/avatar.jpg" alt="Amanina Zakaria" />
+            </div>
+            <div class="profile-main">
+              <div class="title-row">
+                <div>
+                  <h1>Amanina Zakaria</h1>
+                  <p>@amanina_zakaria &bull; women&apos;s fashion creator</p>
+                </div>
+                <button class="btn btn-primary" data-follow>Follow</button>
+              </div>
+              <div class="profile-stats">
+                <span><strong>74.4K</strong> followers</span>
+                <span><strong>280</strong> posts</span>
+                <span><strong>1,166</strong> following</span>
+              </div>
+              <p class="profile-bio">
+                Digital creator &bull; MY &bull; Full time designer.
+                Sharing OOTD, modest fashion, and curated style finds.
+              </p>
+              <div class="chip-row">
+                <span class="chip active">Fashion</span>
+                <span class="chip">Modest wear</span>
+                <span class="chip">Hijab style</span>
+                <span class="chip">OOTD</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Latest from Instagram -->
+        <section class="section-block compact" id="instagram-section">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Latest from Instagram</span>
+              <h2>@amanina_zakaria</h2>
+            </div>
+            <a class="text-link" href="https://www.instagram.com/amanina_zakaria/" target="_blank" rel="noopener noreferrer">View on Instagram &rarr;</a>
+          </div>
+          <!-- Populated by script.js — swap instagramMockPosts for real Instagram Graph API response -->
+          <div class="ig-grid" id="ig-grid"></div>
+        </section>
+
+        <!-- Promo Banner -->
+        <div class="promo-banner-wrap">
+          <div class="promo-banner" id="promo-banner">
+            <div class="promo-display" id="promo-display">
+              <div class="promo-left">
+                <span class="promo-icon" id="promo-icon">&#128666;</span>
+                <div>
+                  <p class="promo-main" id="promo-text">FREE SHIPPING</p>
+                  <p class="promo-sub" id="promo-sub">on orders above Rp300.000</p>
+                </div>
+              </div>
+              <button class="promo-cta-btn" onclick="window.location.href='product.html?id=satin-midi-skirt'">Shop now</button>
+              <button class="promo-edit-btn" onclick="openPromoEdit()" title="Edit promotion">&#9998;</button>
+            </div>
+            <div class="promo-editor" id="promo-editor">
+              <div class="promo-type-row">
+                <button class="promo-type-btn active" id="type-shipping" onclick="setPromoType('shipping')">&#128666; Free Shipping</button>
+                <button class="promo-type-btn" id="type-discount" onclick="setPromoType('discount')">&#127991; Discount</button>
+              </div>
+              <div class="promo-inputs">
+                <input id="promo-main-val" class="promo-input" placeholder="Headline e.g. FREE SHIPPING" />
+                <input id="promo-sub-val" class="promo-input" placeholder="Subtitle e.g. on orders above Rp300.000" />
+              </div>
+              <div class="promo-editor-btns">
+                <button class="promo-save-btn" onclick="savePromo()">Save</button>
+                <button class="promo-cancel-btn" onclick="closePromoEdit()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Her Looks (Videos) -->
+        <section class="section-block compact tinted-section">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Her looks</span>
+              <h2>Dinner, cafe &amp; everyday OOTD</h2>
+            </div>
+          </div>
+          <div class="card-grid three-col" id="look-grid">
+            <a class="look-card" href="product.html?id=dinner-date-blouse">
+              <div class="visual portrait-card rose-gradient">
+                <video src="img/reel1.mp4" class="card-photo" autoplay muted loop playsinline></video>
+                <span class="badge">Dinner date</span>
+                <span class="look-label">Top</span>
+              </div>
+              <div class="card-copy">
+                <h3>Silk Dinner Blouse</h3>
+                <strong>Rp249.000</strong>
+              </div>
+            </a>
+            <a class="look-card" href="product.html?id=satin-midi-skirt">
+              <div class="visual portrait-card blush-gradient">
+                <video src="img/reel2.mp4" class="card-photo" autoplay muted loop playsinline></video>
+                <span class="badge">Autumn Winter</span>
+                <span class="look-label">Skirt</span>
+              </div>
+              <div class="card-copy">
+                <h3>Satin Midi Skirt</h3>
+                <strong>Rp289.000</strong>
+              </div>
+            </a>
+            <a class="look-card" href="product.html?id=cafe-knit-top">
+              <div class="visual portrait-card cream-gradient">
+                <video src="img/reel3.mp4" class="card-photo" autoplay muted loop playsinline></video>
+                <span class="badge">Travel OOTD</span>
+                <span class="look-label">Top</span>
+              </div>
+              <div class="card-copy">
+                <h3>Minimal Knit Top</h3>
+                <strong>Rp219.000</strong>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Section 4: Brand Collaborations -->
+        <section class="section-block compact">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Portfolio</span>
+              <h2>Brands she&rsquo;s worked with</h2>
+            </div>
+          </div>
+          <div class="brand-strip-wrap">
+            <button class="brand-arrow brand-arrow-prev" id="brand-prev" aria-label="Scroll left">&#8249;</button>
+            <div class="brand-strip" id="brand-strip">
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Naelofar" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">N</span>
+                  <span class="brand-tile-name">Naelofar</span>
+                </div>
+              </div>
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="dUCk" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">d</span>
+                  <span class="brand-tile-name">dUCk</span>
+                </div>
+              </div>
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Rizalman" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">R</span>
+                  <span class="brand-tile-name">Rizalman</span>
+                </div>
+              </div>
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/3755824/pexels-photo-3755824.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Jovian" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">J</span>
+                  <span class="brand-tile-name">Jovian</span>
+                </div>
+              </div>
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Pomelo" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">P</span>
+                  <span class="brand-tile-name">Pomelo</span>
+                </div>
+              </div>
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Zalia" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">Z</span>
+                  <span class="brand-tile-name">Zalia</span>
+                </div>
+              </div>
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/2272997/pexels-photo-2272997.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Lubna" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">L</span>
+                  <span class="brand-tile-name">Lubna</span>
+                </div>
+              </div>
+
+              <div class="brand-tile">
+                <img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Arzu" class="brand-tile-img" />
+                <div class="brand-tile-overlay">
+                  <span class="brand-tile-logo">A</span>
+                  <span class="brand-tile-name">Arzu Studio</span>
+                </div>
+              </div>
+
+            </div>
+            <button class="brand-arrow brand-arrow-next" id="brand-next" aria-label="Scroll right">&#8250;</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <strong>glimsy</strong>
+          <p>Fashion feeds meet seamless checkout.</p>
+        </div>
+        <p>Browse, follow, save, and shop in one place.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

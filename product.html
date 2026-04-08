@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page | Glimsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="product">
+    <!-- Signup Discount Banner -->
+    <div class="signup-bar" id="signup-bar">
+      <div class="signup-bar-inner">
+        <div class="signup-bar-text">
+          <span class="signup-bar-tag">Members only</span>
+          <span>Sign up &amp; get <strong>15% off</strong> your first order</span>
+        </div>
+        <form class="signup-bar-form" id="signup-bar-form" novalidate>
+          <input
+            type="email"
+            class="signup-bar-input"
+            id="signup-bar-email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          />
+          <button type="submit" class="signup-bar-btn">Claim Discount</button>
+        </form>
+        <button class="signup-bar-close" id="signup-bar-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="signup-bar-success" id="signup-bar-success">
+        <span>&#10003; You&rsquo;re in! Use code <strong id="signup-code">GLIMSY15</strong> at checkout for 15% off.</span>
+        <button class="signup-bar-close" id="signup-success-close" aria-label="Close">&times;</button>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">glimsy</a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="influencers.html">Influencer</a>
+          <a href="shop.html" class="active">Shop</a>
+          <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <section class="product-layout" data-product-page>
+          <div class="product-gallery">
+            <div class="product-visual blush-gradient" id="product-visual-main">
+              <span class="badge" id="product-badge">Affiliate</span>
+            </div>
+            <div class="thumb-row">
+              <div class="thumb-card rose-gradient"></div>
+              <div class="thumb-card cream-gradient"></div>
+              <div class="thumb-card mauve-gradient"></div>
+            </div>
+          </div>
+
+          <div class="product-details">
+            <span class="eyebrow">Featured by @amanina_zakaria</span>
+            <h1 id="product-name">Satin Midi Skirt</h1>
+            <p class="price-tag" id="product-price">Rp289.000</p>
+            <p class="product-copy" id="product-description">
+              Feminine satin skirt with a soft drape for dinner looks and elevated daytime styling.
+            </p>
+
+            <div class="meta-list">
+              <div><strong>Category:</strong> <span id="product-category">Skirt</span></div>
+              <div><strong>Type:</strong> <span id="product-type">Affiliate item</span></div>
+              <div><strong>Best for:</strong> Dinner dates, formal café nights</div>
+            </div>
+
+            <div class="size-row">
+              <span class="size-pill active">S</span>
+              <span class="size-pill">M</span>
+              <span class="size-pill">L</span>
+              <span class="size-pill">XL</span>
+            </div>
+
+            <div class="cta-column">
+              <button class="btn btn-primary full-width" id="add-to-cart" data-add-cart data-product="satin-midi-skirt">
+                Add to cart
+              </button>
+              <a class="btn btn-secondary full-width" href="shop.html">&larr; Back to Shop</a>
+            </div>
+
+            <div class="note-box">
+              <strong>Why users love it</strong>
+              <p id="product-story">
+                A saved favourite from Amanina's dinner-date reel, designed for easy soft-glam styling.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block compact" id="reviews-section">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Customer Reviews</span>
+              <h2 id="reviews-heading">What people are saying</h2>
+            </div>
+          </div>
+          <div class="reviews-layout">
+            <div class="reviews-summary" id="reviews-summary"></div>
+            <div class="reviews-list" id="reviews-list"></div>
+          </div>
+        </section>
+
+        <section class="section-block compact">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Complete the look</span>
+              <h2>Recommended tops, bottoms, and scarves</h2>
+            </div>
+          </div>
+          <div class="card-grid three-col">
+            <a class="feed-card" href="product.html?id=dinner-date-blouse">
+              <div class="visual rose-gradient"></div>
+              <div class="card-copy">
+                <h3>Dinner Date Blouse</h3>
+                <p>Soft structured fit for elegant nights.</p>
+              </div>
+            </a>
+            <a class="feed-card" href="product.html?id=linen-wide-pants">
+              <div class="visual sage-gradient"></div>
+              <div class="card-copy">
+                <h3>Linen Wide Pants</h3>
+                <p>Easy and breathable for a relaxed outfit swap.</p>
+              </div>
+            </a>
+            <a class="feed-card" href="product.html?id=printed-hijab-scarf">
+              <div class="visual mauve-gradient"></div>
+              <div class="card-copy">
+                <h3>Printed Hijab Scarf</h3>
+                <p>A polished accent that softens the whole outfit.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <strong>glimsy</strong>
+          <p>Social inspiration, then direct purchase.</p>
+        </div>
+        <p>Designed for a soft and minimal women’s shopping journey.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
