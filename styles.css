@@ -761,6 +761,31 @@ h2 {
   margin: 12px;
 }
 
+/* Hide product badge — type is shown in meta list */
+body[data-page="product"] .badge {
+  display: none;
+}
+
+/* Look card meta: stars + price row */
+.look-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.look-card-stars {
+  display: flex;
+  gap: 1px;
+}
+
+.look-card-price {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
 .creator-card {
   text-align: center;
 }
@@ -1107,6 +1132,11 @@ h2 {
 .product-layout {
   grid-template-columns: 1.1fr 0.9fr;
   align-items: start;
+}
+
+/* Photo overlay: name+price shown inside image on mobile, hidden on desktop */
+.product-photo-info {
+  display: none;
 }
 
 .product-visual {
@@ -2906,7 +2936,7 @@ select {
 
 
 /* --------------------------------------------------------------
-   INFLUENCER PAGE � DESKTOP FULL-BLEED STYLE
+   INFLUENCER PAGE � DESKTOP FULL-BLEED STYLE
    Edge-to-edge, no gaps, no rounded corners, responsive fonts
    -------------------------------------------------------------- */
 @media (min-width: 641px) {
@@ -3012,5 +3042,285 @@ select {
   body[data-page="influencer"] .promo-banner {
     border-radius: 0;
     box-shadow: none;
+  }
+}
+
+/* --------------------------------------------------------------
+   PRODUCT PAGE � MOBILE FULL-BLEED STYLE (max-width: 640px)
+   -------------------------------------------------------------- */
+@media (max-width: 640px) {
+
+  /* Full-width container */
+  body[data-page="product"] .page-shell > .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Stack gallery above details, no gap between them */
+  body[data-page="product"] .product-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Gallery: full-bleed, portrait ratio, no radius */
+  body[data-page="product"] .product-gallery {
+    padding: 0;
+  }
+  body[data-page="product"] .product-visual {
+    border-radius: 0;
+    border: none;
+    min-height: unset;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Photo overlay: title + price on top of image */
+  body[data-page="product"] .product-photo-info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 48px 14px 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+    gap: 2px;
+    z-index: 2;
+  }
+  body[data-page="product"] .product-photo-name {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.15;
+  }
+  body[data-page="product"] .product-photo-price {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.92);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* Thumbnails: compact 3-col grid directly under image */
+  body[data-page="product"] .thumb-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 3px;
+    padding: 0;
+  }
+  body[data-page="product"] .thumb-card {
+    min-height: 48px;
+    border-radius: 0;
+    aspect-ratio: unset;
+  }
+
+  /* Details panel: flat, full width, tighter padding */
+  body[data-page="product"] .product-details {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    padding: 14px 16px 16px;
+  }
+
+  /* Hide title and price from details — shown in photo overlay */
+  body[data-page="product"] .product-details h1,
+  body[data-page="product"] .product-details .price-tag {
+    display: none;
+  }
+
+  /* Description copy: tighter */
+  body[data-page="product"] .product-copy {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* Meta list: compact */
+  body[data-page="product"] .meta-list {
+    font-size: 0.82rem;
+    gap: 5px;
+    margin: 10px 0;
+  }
+
+  /* Size pills: slightly smaller */
+  body[data-page="product"] .size-row {
+    gap: 7px;
+    margin-bottom: 10px;
+  }
+  body[data-page="product"] .size-pill {
+    padding: 7px 12px;
+    font-size: 0.83rem;
+  }
+
+  /* CTA buttons */
+  body[data-page="product"] .cta-column {
+    gap: 8px;
+    margin: 10px 0;
+  }
+  body[data-page="product"] .cta-column .btn {
+    padding: 13px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Note / Why users love it */
+  body[data-page="product"] .note-box {
+    border-radius: 10px;
+    padding: 11px 13px;
+  }
+  body[data-page="product"] .note-box strong {
+    font-size: 0.88rem;
+  }
+  body[data-page="product"] .note-box p {
+    font-size: 0.81rem;
+    margin: 3px 0 0;
+  }
+
+  /* Reviews section heading */
+  body[data-page="product"] #reviews-section {
+    padding: 14px 14px 18px;
+  }
+  body[data-page="product"] #reviews-section h2 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+  }
+  body[data-page="product"] #reviews-section .eyebrow {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    margin-bottom: 5px;
+  }
+
+  /* Reviews layout: tight gap */
+  body[data-page="product"] .reviews-layout {
+    gap: 12px;
+  }
+
+  /* Summary panel: compact */
+  body[data-page="product"] .reviews-summary {
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: none;
+  }
+  body[data-page="product"] .rev-avg-score {
+    font-size: 2rem;
+    margin-bottom: 3px;
+  }
+  body[data-page="product"] .rev-avg-stars {
+    gap: 2px;
+    margin-bottom: 3px;
+  }
+  body[data-page="product"] .rev-star {
+    font-size: 0.9rem;
+  }
+  body[data-page="product"] .rev-avg-label {
+    font-size: 0.72rem;
+    margin-bottom: 12px;
+  }
+  body[data-page="product"] .rev-bar-row {
+    margin-bottom: 5px;
+    gap: 7px;
+  }
+  body[data-page="product"] .rev-bar-label {
+    font-size: 0.7rem;
+    min-width: 18px;
+  }
+  body[data-page="product"] .rev-bar-track {
+    height: 5px;
+  }
+  body[data-page="product"] .rev-bar-count {
+    font-size: 0.68rem;
+  }
+
+  /* Individual review cards */
+  body[data-page="product"] .reviews-list {
+    gap: 10px;
+  }
+  body[data-page="product"] .review-card {
+    padding: 12px 13px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+  body[data-page="product"] .review-card-top {
+    gap: 9px;
+    margin-bottom: 7px;
+  }
+  body[data-page="product"] .review-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.78rem;
+  }
+  body[data-page="product"] .review-author {
+    font-size: 0.8rem;
+  }
+  body[data-page="product"] .review-date {
+    font-size: 0.7rem;
+  }
+  body[data-page="product"] .r-star {
+    font-size: 0.72rem;
+  }
+  body[data-page="product"] .review-verified {
+    font-size: 0.65rem;
+    padding: 1px 7px;
+    margin-top: 4px;
+  }
+  body[data-page="product"] .review-body {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  /* "Complete the look" — horizontal scroll strip, full-bleed */
+  body[data-page="product"] .section-block:not(#reviews-section) {
+    padding: 16px 0 20px;
+  }
+  body[data-page="product"] .section-block:not(#reviews-section) .section-heading {
+    padding: 0 14px;
+  }
+  body[data-page="product"] .section-block:not(#reviews-section) h2 {
+    font-size: 0.9rem;
+  }
+  body[data-page="product"] .section-block:not(#reviews-section) .eyebrow {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    margin-bottom: 5px;
+  }
+  body[data-page="product"] .card-grid.three-col {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+  }
+  body[data-page="product"] .card-grid.three-col::-webkit-scrollbar {
+    display: none;
+  }
+  body[data-page="product"] .card-grid.three-col .feed-card {
+    flex: 0 0 72vw;
+    scroll-snap-align: start;
+    border-radius: 0;
+    border-right: 1px solid var(--line);
+  }
+  body[data-page="product"] .card-grid.three-col .feed-card:last-child {
+    border-right: none;
+  }
+  body[data-page="product"] .card-grid.three-col .visual {
+    min-height: unset;
+    aspect-ratio: 3 / 4;
+    border-radius: 0;
+  }
+  body[data-page="product"] .card-grid.three-col .card-copy {
+    padding: 9px 12px 12px;
+  }
+  body[data-page="product"] .card-grid.three-col .card-copy h3 {
+    font-size: 0.83rem;
+    margin-bottom: 2px;
+  }
+  body[data-page="product"] .card-grid.three-col .card-copy p {
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
 }

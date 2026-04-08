@@ -310,24 +310,41 @@ function renderProductPage() {
   document.getElementById("product-description").textContent = product.description;
   document.getElementById("product-category").textContent = product.category;
   document.getElementById("product-type").textContent = product.type;
-  document.getElementById("product-story").textContent = product.story;
   document.getElementById("product-badge").textContent = product.badge;
 
   const addButton = document.getElementById("add-to-cart");
   addButton.dataset.product = product.id;
 
   const visual = document.getElementById("product-visual-main");
+  const overlayHTML = `<div class="product-photo-info"><p class="product-photo-name">${product.name}</p><p class="product-photo-price">${formatIDR(product.price)}</p></div>`;
   if (product.img) {
     visual.className = 'product-visual';
-    visual.innerHTML = `<img src="${product.img}" alt="${product.name}" class="banner-photo" style="object-position:center top" /><span class="badge">${product.badge}</span>`;
+    visual.innerHTML = `<img src="${product.img}" alt="${product.name}" class="banner-photo" style="object-position:center top" /><span class="badge">${product.badge}</span>${overlayHTML}`;
   } else {
     visual.className = `product-visual ${product.gradient}`;
-    visual.innerHTML = `<span class="badge">${product.badge}</span>`;
+    visual.innerHTML = `<span class="badge">${product.badge}</span>${overlayHTML}`;
   }
 
   renderProductReviews(product.id);
-}
 
+  // Populate look cards with price + stars
+  document.querySelectorAll('#look-grid [data-look-id]').forEach(card => {
+    const p = productCatalog[card.dataset.lookId];
+    if (!p) return;
+    const starsHTML = Array.from({length: 5}, (_, i) =>
+      `<span class="r-star${i < Math.round(p.rating) ? ' filled' : ''}">★</span>`
+    ).join('');
+    card.querySelector('.look-card-stars').innerHTML = starsHTML;
+    card.querySelector('.look-card-price').textContent = formatIDR(p.price);
+    if (p.img) {
+      const vis = card.querySelector('.visual');
+      vis.className = 'visual';
+      vis.style.backgroundImage = `url(${p.img})`;
+      vis.style.backgroundSize = 'cover';
+      vis.style.backgroundPosition = 'center top';
+    }
+  });
+}
 function renderCartPage() {
   if (document.body.dataset.page !== "cart") return;
 
