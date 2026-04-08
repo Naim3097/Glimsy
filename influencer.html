@@ -37,15 +37,17 @@
             <div class="hero-dots" id="hero-dots"></div>
           </div>
           <div class="profile-box">
+            <!-- Row 1: avatar + name/handle (inline) -->
             <div class="profile-avatar-large">
               <img src="img/avatar.jpg" alt="Amanina Zakaria" />
             </div>
+            <div class="profile-name-block">
+              <h1>Amanina Zakaria</h1>
+              <p>@amanina_zakaria &bull; women&apos;s fashion creator</p>
+            </div>
+            <!-- Row 2: everything else spans full width -->
             <div class="profile-main">
-              <div class="title-row">
-                <div>
-                  <h1>Amanina Zakaria</h1>
-                  <p>@amanina_zakaria &bull; women&apos;s fashion creator</p>
-                </div>
+              <div class="profile-top-actions">
                 <button class="btn btn-primary" data-follow>Follow</button>
               </div>
               <div class="profile-stats">
@@ -119,14 +121,17 @@
               <h2>Dinner, cafe &amp; everyday OOTD</h2>
             </div>
           </div>
-          <div class="card-grid three-col" id="look-grid">
+          <div class="card-grid four-col" id="look-grid">
             <a class="look-card" href="product.html?id=dinner-date-blouse">
               <div class="visual portrait-card rose-gradient">
                 <video src="img/reel1.mp4" class="card-photo" autoplay muted loop playsinline></video>
-                <span class="badge">Dinner date</span>
                 <span class="look-label">Top</span>
+                <div class="look-product-strip">
+                  <span class="look-product-name">Silk Dinner Blouse</span>
+                  <span class="look-product-price">Rp249.000</span>
+                </div>
               </div>
-              <div class="card-copy">
+              <div class="card-copy desktop-only">
                 <h3>Silk Dinner Blouse</h3>
                 <strong>Rp249.000</strong>
               </div>
@@ -134,10 +139,13 @@
             <a class="look-card" href="product.html?id=satin-midi-skirt">
               <div class="visual portrait-card blush-gradient">
                 <video src="img/reel2.mp4" class="card-photo" autoplay muted loop playsinline></video>
-                <span class="badge">Autumn Winter</span>
                 <span class="look-label">Skirt</span>
+                <div class="look-product-strip">
+                  <span class="look-product-name">Satin Midi Skirt</span>
+                  <span class="look-product-price">Rp289.000</span>
+                </div>
               </div>
-              <div class="card-copy">
+              <div class="card-copy desktop-only">
                 <h3>Satin Midi Skirt</h3>
                 <strong>Rp289.000</strong>
               </div>
@@ -145,19 +153,36 @@
             <a class="look-card" href="product.html?id=cafe-knit-top">
               <div class="visual portrait-card cream-gradient">
                 <video src="img/reel3.mp4" class="card-photo" autoplay muted loop playsinline></video>
-                <span class="badge">Travel OOTD</span>
                 <span class="look-label">Top</span>
+                <div class="look-product-strip">
+                  <span class="look-product-name">Minimal Knit Top</span>
+                  <span class="look-product-price">Rp219.000</span>
+                </div>
               </div>
-              <div class="card-copy">
+              <div class="card-copy desktop-only">
                 <h3>Minimal Knit Top</h3>
                 <strong>Rp219.000</strong>
+              </div>
+            </a>
+            <a class="look-card" href="product.html?id=classic-black-abaya">
+              <div class="visual portrait-card rose-gradient">
+                <video src="img/reel1.mp4" class="card-photo" autoplay muted loop playsinline style="object-position:center 20%"></video>
+                <span class="look-label">Abaya</span>
+                <div class="look-product-strip">
+                  <span class="look-product-name">Classic Black Abaya</span>
+                  <span class="look-product-price">Rp389.000</span>
+                </div>
+              </div>
+              <div class="card-copy desktop-only">
+                <h3>Classic Black Abaya</h3>
+                <strong>Rp389.000</strong>
               </div>
             </a>
           </div>
         </section>
 
         <!-- Section 4: Brand Collaborations -->
-        <section class="section-block compact">
+        <section class="section-block compact" id="portfolio-section">
           <div class="section-heading">
             <div>
               <span class="eyebrow">Portfolio</span>

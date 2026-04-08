@@ -477,6 +477,10 @@ h2 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.card-grid.four-col {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .feed-card,
 .look-card {
   overflow: hidden;
@@ -564,6 +568,37 @@ h2 {
   font-size: 0.75rem;
   font-weight: 800;
   color: var(--text);
+}
+
+/* Product name + price overlay inside video cards */
+.look-product-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 10px 12px;
+  display: none; /* hidden on desktop — card-copy shows below */
+  flex-direction: column;
+  gap: 1px;
+  background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 100%);
+}
+
+.look-product-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.look-product-price {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
 /* Instagram grid — 3 portrait columns */
@@ -982,9 +1017,12 @@ h2 {
   align-items: center;
 }
 
+/* Desktop layout: avatar spans both rows col1; name-block + profile-main stack in col2 */
 .profile-avatar-large {
   width: 120px;
   height: 120px;
+  grid-row: 1 / 3;
+  grid-column: 1;
   margin: 0;
   border: 4px solid #fff;
   overflow: hidden;
@@ -992,6 +1030,32 @@ h2 {
   flex-shrink: 0;
   align-self: center;
   box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+/* profile-name-block: col2 row1 */
+.profile-name-block {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+}
+.profile-name-block h1 {
+  margin: 0 0 4px;
+}
+.profile-name-block p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* follow button row */
+.profile-top-actions {
+  margin-bottom: 6px;
+}
+
+/* profile-main: col2 row2 */
+.profile-main {
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .profile-avatar-large img {
@@ -2199,6 +2263,10 @@ select {
     grid-template-columns: 1fr;
   }
 
+  .card-grid.four-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .ig-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2312,5 +2380,637 @@ select {
 
   .price-now {
     font-size: 0.92rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE POLISH — extra responsive refinements
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tablet (≤ 900px) additions ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  /* Stack the filter pills above the sort dropdown on shop page */
+  .shop-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .shop-sort select {
+    max-width: 260px;
+  }
+
+  /* Influencer filter toolbar: scroll horizontally on smaller screens */
+  .inf-list-toolbar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  /* Reduce page header h1 on tablet */
+  .shop-page-header h1,
+  .inf-list-header h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* ─── Mobile (≤ 640px) additions ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  /* === Navigation: stay horizontal (override the column-stack) === */
+  .nav-wrap {
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 0;
+    gap: 0;
+  }
+  .brand {
+    font-size: 1.05rem;
+  }
+  .nav-links {
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+  }
+
+  /* === Signup bar: stack vertically === */
+  .signup-bar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 40px 12px 14px;
+    text-align: center;
+  }
+  .signup-bar-text {
+    justify-content: center;
+    white-space: normal;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+  }
+  .signup-bar-form {
+    justify-content: center;
+    width: 100%;
+  }
+  .signup-bar-input {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    font-size: 0.78rem;
+  }
+  .signup-bar-btn {
+    padding: 9px 16px;
+    font-size: 0.78rem;
+  }
+  .signup-bar-success {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 40px 12px 14px;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  /* === Shop & influencer page headers === */
+  .shop-page-header,
+  .inf-list-header {
+    padding: 20px 0 0;
+    margin-bottom: 14px;
+  }
+  .shop-page-header h1,
+  .inf-list-header h1 {
+    font-size: 1.4rem;
+  }
+  .shop-page-header p,
+  .inf-list-header p {
+    font-size: 0.88rem;
+  }
+
+  /* === Category filter pills === */
+  .cat-pill {
+    padding: 7px 13px;
+    font-size: 0.78rem;
+  }
+
+  /* === Filter pill rows: scroll horizontally instead of wrapping === */
+  .shop-toolbar .cat-filters,
+  .inf-list-toolbar .cat-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+    width: 100%;
+  }
+  .shop-toolbar .cat-filters::-webkit-scrollbar,
+  .inf-list-toolbar .cat-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* === Shop toolbar gap on mobile === */
+  .shop-toolbar {
+    gap: 8px;
+  }
+
+  /* === Profile: smaller avatar, tighter padding === */
+  .profile-avatar-large {
+    width: 76px;
+    height: 76px;
+  }
+  .profile-box {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  /* === Hero slide: tighter padding & smaller CTA === */
+  .hero-slide-content {
+    padding: 16px 16px 20px;
+  }
+  .hero-slide-sub {
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+  }
+  .hero-slide-btn {
+    padding: 9px 18px;
+    font-size: 0.82rem;
+  }
+
+  /* === Brand strip: hide arrows, smaller tiles, native swipe === */
+  .brand-arrow {
+    display: none;
+  }
+  .brand-strip {
+    scroll-snap-type: x mandatory;
+    padding: 4px 0 10px;
+  }
+  .brand-tile {
+    scroll-snap-align: start;
+    min-width: 128px;
+    max-width: 128px;
+  }
+
+  /* === Influencer listing card === */
+  .inf-card-body {
+    padding: 34px 14px 14px;
+  }
+  .inf-card-name {
+    font-size: 0.94rem;
+  }
+
+  /* === Section heading alignment === */
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  /* === Footer === */
+  .footer-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 0 22px;
+    gap: 8px;
+    font-size: 0.88rem;
+  }
+
+  /* === Reviews layout === */
+  .review-card {
+    padding: 16px;
+  }
+
+  /* === Influencer profile page — mobile overrides === */
+
+  /* ── Full-bleed container: remove side padding ── */
+  body[data-page="influencer"] .page-shell > .container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+  body[data-page="influencer"] .page-shell {
+    padding: 0;
+  }
+
+  /* ── Banner: portrait poster, edge-to-edge, no radius ── */
+  .profile-hero {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    box-shadow: none;
+  }
+  .profile-hero .hero-slider {
+    height: unset !important;
+    aspect-ratio: 3 / 4;
+    border-radius: 0;
+  }
+  .profile-hero .hero-slides,
+  .profile-hero .hero-slide {
+    height: 100%;
+  }
+
+  /* ── Profile box: avatar + name inline, rest below ── */
+  .profile-box {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 14px 16px 16px;
+    gap: 10px;
+    row-gap: 0;
+  }
+  /* avatar: row 1 col 1, no row-span on mobile */
+  .profile-avatar-large {
+    width: 56px;
+    height: 56px;
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+  }
+  /* name+handle: row 1 col 2 */
+  .profile-name-block {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+  }
+  .profile-name-block h1 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+  .profile-name-block p {
+    font-size: 0.74rem;
+  }
+  /* profile-main: row 2, spans both columns */
+  .profile-main {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    padding-top: 12px;
+  }
+  .profile-top-actions {
+    margin-bottom: 10px;
+  }
+  .profile-top-actions .btn {
+    padding: 7px 18px;
+    font-size: 0.8rem;
+  }
+  .profile-stats {
+    gap: 10px;
+    font-size: 0.78rem;
+    margin: 0 0 8px;
+  }
+  .profile-bio {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0 0 10px;
+  }
+  .chip-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    gap: 6px;
+  }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .chip {
+    font-size: 0.72rem;
+    padding: 5px 11px;
+    white-space: nowrap;
+  }
+
+  /* ── Section headings: add back padding when inside bleed layout ── */
+  body[data-page="influencer"] .section-block {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body[data-page="influencer"] .section-heading {
+    padding: 0 16px;
+  }
+  body[data-page="influencer"] .promo-banner-wrap {
+    padding: 0;
+  }
+  body[data-page="influencer"] .promo-banner {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    background: linear-gradient(135deg, #3d1a4a 0%, #7b3a6b 50%, #bf6f99 100%);
+    position: relative;
+  }
+  body[data-page="influencer"] .promo-display {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+  body[data-page="influencer"] .promo-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+  }
+  body[data-page="influencer"] .promo-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  body[data-page="influencer"] .promo-main {
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  body[data-page="influencer"] .promo-sub {
+    font-size: 0.74rem;
+    opacity: 0.85;
+  }
+  body[data-page="influencer"] .promo-cta-btn {
+    padding: 8px 16px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-radius: 999px;
+    background: white;
+    color: #7b3a6b;
+    border: none;
+    flex-shrink: 0;
+    width: auto;
+  }
+  body[data-page="influencer"] .promo-edit-btn {
+    display: none;
+  }
+
+  /* ── Instagram section heading: single compact row ── */
+  body[data-page="influencer"] #instagram-section {
+    padding-top: 14px;
+    padding-bottom: 0;
+  }
+  body[data-page="influencer"] #instagram-section .section-heading {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 0 16px;
+  }
+  /* hide the "Latest from Instagram" eyebrow tag — saves a full line */
+  body[data-page="influencer"] #instagram-section .section-heading .eyebrow {
+    display: none;
+  }
+  body[data-page="influencer"] #instagram-section .section-heading h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+  }
+  /* "View on Instagram →" — plain small text link, no pill */
+  body[data-page="influencer"] #instagram-section .text-link {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--primary);
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  /* ── Instagram grid: edge-to-edge, 2-col, no gap, square, no radius ── */
+  body[data-page="influencer"] .ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+  body[data-page="influencer"] .ig-card {
+    border-radius: 0;
+    aspect-ratio: 1 / 1;
+    border: none;
+  }
+  /* Hide the label badges (OOTD, Batik OOTD, etc.) on mobile */
+  body[data-page="influencer"] .ig-card .ig-badge {
+    display: none;
+  }
+
+  /* ── Her Looks videos: edge-to-edge, no gap, no radius ── */
+
+  /* Section heading: 1 row, compact */
+  body[data-page="influencer"] .tinted-section .section-heading {
+    padding: 0 16px;
+    margin-bottom: 12px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  body[data-page="influencer"] .tinted-section .section-heading .eyebrow {
+    display: none;
+  }
+  body[data-page="influencer"] .tinted-section .section-heading h2 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  body[data-page="influencer"] .card-grid.four-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    margin: 0;
+  }
+  body[data-page="influencer"] .card-grid.four-col .look-card {
+    border-radius: 0;
+  }
+  body[data-page="influencer"] .card-grid.four-col .visual,
+  body[data-page="influencer"] .card-grid.four-col .portrait-card {
+    border-radius: 0;
+    border: none;
+  }
+  body[data-page="influencer"] .card-grid.four-col .card-photo {
+    border-radius: 0;
+  }
+
+  /* Hide badges and look-label tag on mobile */
+  body[data-page="influencer"] .card-grid.four-col .badge,
+  body[data-page="influencer"] .card-grid.four-col .look-label {
+    display: none;
+  }
+
+  /* Hide below-card name/price (desktop-only class) */
+  body[data-page="influencer"] .desktop-only {
+    display: none;
+  }
+
+  /* Show overlay strip inside video */
+  body[data-page="influencer"] .look-product-strip {
+    display: flex;
+  }
+  body[data-page="influencer"] .brand-strip-wrap {
+    display: block;
+    padding: 0;
+  }
+  body[data-page="influencer"] .brand-arrow {
+    display: none;
+  }
+  body[data-page="influencer"] .brand-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    overflow: visible;
+    padding: 0;
+  }
+  body[data-page="influencer"] .brand-tile {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    border-radius: 0;
+    box-shadow: none;
+    aspect-ratio: 1 / 1;
+    transition: none;
+  }
+  body[data-page="influencer"] .brand-tile-logo {
+    width: 28px;
+    height: 28px;
+    font-size: 0.82rem;
+  }
+  body[data-page="influencer"] .brand-tile-name {
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+  body[data-page="influencer"] .brand-tile-overlay {
+    padding: 8px;
+    gap: 2px;
+  }
+
+  /* Compact Portfolio section heading */
+  body[data-page="influencer"] #portfolio-section {
+    padding-top: 14px;
+    padding-bottom: 0;
+  }
+  body[data-page="influencer"] #portfolio-section .section-heading {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 0 16px;
+    margin-bottom: 4px;
+    gap: 8px;
+  }
+  body[data-page="influencer"] #portfolio-section .section-heading .eyebrow {
+    display: none;
+  }
+  body[data-page="influencer"] #portfolio-section .section-heading h2 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+  }
+}
+
+
+/* --------------------------------------------------------------
+   INFLUENCER PAGE � DESKTOP FULL-BLEED STYLE
+   Edge-to-edge, no gaps, no rounded corners, responsive fonts
+   -------------------------------------------------------------- */
+@media (min-width: 641px) {
+
+  /* Full-width container on influencer page */
+  body[data-page="influencer"] .page-shell > .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Profile hero: no card styling */
+  body[data-page="influencer"] .profile-hero {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Hero slider: proportional height */
+  body[data-page="influencer"] .hero-slider {
+    height: clamp(320px, 52vw, 620px);
+  }
+
+  /* Profile box: horizontal padding since container is full-width */
+  body[data-page="influencer"] .profile-box {
+    padding: 20px max(24px, 4vw);
+  }
+
+  /* Profile name: tame the big h1 */
+  body[data-page="influencer"] .profile-name-block h1 {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+  }
+
+  /* Section blocks: flush edges */
+  body[data-page="influencer"] .section-block {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Section headings: inset padding so text aligns nicely */
+  body[data-page="influencer"] .section-block .section-heading {
+    padding-left: max(24px, 4vw);
+    padding-right: max(24px, 4vw);
+  }
+
+  /* Section h2: responsive, not oversized */
+  body[data-page="influencer"] .section-block h2 {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+  }
+
+  /* Instagram grid: no gap, no radius */
+  body[data-page="influencer"] .ig-grid {
+    gap: 0;
+  }
+  body[data-page="influencer"] .ig-card {
+    border-radius: 0;
+  }
+
+  /* Her Looks video grid: no gap, no radius */
+  body[data-page="influencer"] .card-grid.four-col {
+    gap: 0;
+  }
+  body[data-page="influencer"] .card-grid.four-col .visual.portrait-card {
+    border-radius: 0;
+  }
+
+  /* Show product overlay inside video on desktop too */
+  body[data-page="influencer"] .look-product-strip {
+    display: flex;
+  }
+
+  /* Brand strip: grid layout, no scroll arrows, no radius */
+  body[data-page="influencer"] .brand-arrow {
+    display: none;
+  }
+  body[data-page="influencer"] .brand-strip-wrap {
+    display: block;
+  }
+  body[data-page="influencer"] .brand-strip {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0;
+    overflow: visible;
+    padding: 0;
+  }
+  body[data-page="influencer"] .brand-tile {
+    border-radius: 0;
+    box-shadow: none;
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+    flex-shrink: unset;
+  }
+  body[data-page="influencer"] .brand-tile:hover {
+    transform: scale(1.03);
+    box-shadow: none;
+  }
+
+  /* Promo banner: full-bleed, no radius */
+  body[data-page="influencer"] .promo-banner-wrap {
+    padding: 0;
+  }
+  body[data-page="influencer"] .promo-banner {
+    border-radius: 0;
+    box-shadow: none;
   }
 }
