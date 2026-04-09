@@ -2398,11 +2398,84 @@ body[data-page="cart"] .summary-row.total {
   }
 }
 
-.inf-product-grid {
-  display: flex;
-  flex-direction: row;
+/* ─── Checkout page ──────────────────────────────────────────────────────── */
+body[data-page="checkout"] h1 {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  margin-bottom: 6px;
+}
+
+body[data-page="checkout"] .panel-card {
+  padding: 14px 16px;
+}
+
+body[data-page="checkout"] .section-heading {
+  margin-bottom: 10px;
+}
+
+body[data-page="checkout"] .checkout-form {
+  gap: 10px;
+}
+
+body[data-page="checkout"] .form-grid {
+  gap: 10px;
+}
+
+body[data-page="checkout"] label {
+  font-size: 0.78rem;
   gap: 4px;
-  overflow-x: auto;
+}
+
+body[data-page="checkout"] input,
+body[data-page="checkout"] textarea,
+body[data-page="checkout"] select {
+  padding: 9px 11px;
+  border-radius: 10px;
+  font-size: 0.83rem;
+}
+
+body[data-page="checkout"] .btn {
+  font-size: 0.82rem;
+  padding: 11px 16px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+body[data-page="checkout"] .summary-card {
+  padding: 14px 16px;
+}
+
+body[data-page="checkout"] .summary-card h2 {
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  margin-bottom: 10px;
+}
+
+body[data-page="checkout"] .checkout-summary {
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+body[data-page="checkout"] .summary-row {
+  padding: 7px 0;
+  font-size: 0.83rem;
+}
+
+body[data-page="checkout"] .summary-row.total {
+  font-size: 0.92rem;
+  padding-top: 8px;
+}
+
+/* ─── Checkout page ─ mobile ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  body[data-page="checkout"] h1 {
+    font-size: 1.1rem;
+  }
+
+  body[data-page="checkout"] .summary-card h2 {
+    font-size: 0.92rem;
+  }
+}
+
+
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;

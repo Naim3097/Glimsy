@@ -442,14 +442,19 @@ function renderCheckoutSummary() {
 
   wrap.innerHTML = cart
     .map((item) => {
-      const product = productCatalog[item.id];
+      const p = productCatalog[item.id];
+      const imgStyle = p.img
+        ? `background-image:url(${p.img});background-size:cover;background-position:center top;`
+        : '';
+      const gradClass = p.img ? '' : p.gradient || '';
       return `
         <div class="summary-item">
-          <div>
-            <strong>${product.name}</strong>
-            <p>Qty ${item.qty}</p>
+          <div class="cart-item-photo ${gradClass}" style="${imgStyle}"></div>
+          <div class="cart-item-info">
+            <p class="cart-item-name">${p.name}</p>
+            <p class="cart-item-price">Qty ${item.qty} · ${formatIDR(p.price)}</p>
           </div>
-          <strong>${formatIDR(product.price * item.qty)}</strong>
+          <p class="cart-item-total">${formatIDR(p.price * item.qty)}</p>
         </div>
       `;
     })
