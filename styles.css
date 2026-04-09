@@ -2282,6 +2282,73 @@ select {
 .brand-arrow-prev { margin-right: 10px; }
 .brand-arrow-next { margin-left: 10px; }
 
+/* ─── Influencer page: Shop her picks product grid ──────────────────────── */
+.inf-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+.inf-product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.inf-product-card:hover .inf-product-photo {
+  opacity: 0.9;
+}
+
+.inf-product-photo {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  background-color: #f5eef2;
+  transition: opacity 0.2s;
+}
+
+.inf-product-info {
+  padding: 5px 6px 7px;
+  background: #fff;
+}
+
+.inf-product-name {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.inf-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.inf-product-price {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.inf-product-stars {
+  display: flex;
+  gap: 1px;
+}
+
+.ips-star {
+  font-size: 0.6rem;
+  color: #d9d9d9;
+}
+.ips-star.filled {
+  color: #f59e0b;
+}
+
 @media (max-width: 900px) {
   .hero-grid,
   .product-layout,
@@ -2931,6 +2998,41 @@ select {
     font-weight: 700;
     margin: 0;
     line-height: 1;
+  }
+
+  /* Shop her picks grid: 2-col, full-bleed, no radius */
+  body[data-page="influencer"] #inf-shop-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body[data-page="influencer"] #inf-shop-section .section-heading {
+    padding: 0 14px;
+    margin-bottom: 8px;
+  }
+  body[data-page="influencer"] #inf-shop-section .section-heading h2 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+  }
+  body[data-page="influencer"] #inf-shop-section .section-heading .eyebrow {
+    display: none;
+  }
+  body[data-page="influencer"] .inf-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+  body[data-page="influencer"] .inf-product-info {
+    padding: 4px 6px 6px;
+  }
+  body[data-page="influencer"] .inf-product-name {
+    font-size: 0.72rem;
+  }
+  body[data-page="influencer"] .inf-product-price {
+    font-size: 0.7rem;
+  }
+  body[data-page="influencer"] .ips-star {
+    font-size: 0.55rem;
   }
 }
 
