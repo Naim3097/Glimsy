@@ -2317,6 +2317,12 @@ body[data-page="cart"] .summary-row.total {
   body[data-page="cart"] .summary-card h2 {
     font-size: 0.95rem;
   }
+
+  body[data-page="cart"] .summary-row.total {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--line);
+  }
 }
 
 .inf-product-grid {
