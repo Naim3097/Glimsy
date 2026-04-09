@@ -298,6 +298,31 @@ function addToCart(productId) {
   window.location.href = "cart.html";
 }
 
+function renderInfluencerProducts() {
+  const grid = document.getElementById('inf-product-grid');
+  if (!grid) return;
+  const products = Object.values(productCatalog);
+  grid.innerHTML = products.map(p => {
+    const starsHTML = Array.from({length: 5}, (_, i) =>
+      `<span class="ips-star${i < Math.round(p.rating) ? ' filled' : ''}">★</span>`
+    ).join('');
+    const imgStyle = p.img
+      ? `style="background-image:url(${p.img});background-size:cover;background-position:center top;"`
+      : `class="${p.gradient}"`;
+    return `
+      <a class="inf-product-card" href="product.html?id=${p.id}">
+        <div class="inf-product-photo" ${imgStyle}></div>
+        <div class="inf-product-info">
+          <p class="inf-product-name">${p.name}</p>
+          <div class="inf-product-bottom">
+            <span class="inf-product-price">${formatIDR(p.price)}</span>
+            <span class="inf-product-stars">${starsHTML}</span>
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+}
+
 function renderProductPage() {
   if (document.body.dataset.page !== "product") return;
 
@@ -345,6 +370,20 @@ function renderProductPage() {
     }
   });
 }
+function updateQty(productId, delta) {
+  const cart = getCart();
+  const item = cart.find((i) => i.id === productId);
+  if (!item) return;
+  item.qty = Math.max(0, item.qty + delta);
+  if (item.qty === 0) {
+    const idx = cart.indexOf(item);
+    cart.splice(idx, 1);
+  }
+  saveCart(cart);
+  updateCartCount();
+  renderCartPage();
+}
+
 function renderCartPage() {
   if (document.body.dataset.page !== "cart") return;
 
@@ -359,21 +398,28 @@ function renderCartPage() {
       </div>
     `;
   } else {
-    cartItems.innerHTML = cart
-      .map((item) => {
-        const product = productCatalog[item.id];
-        return `
-          <article class="cart-item">
-            <div>
-              <strong>${product.name}</strong>
-              <p>${product.category} • ${product.type}</p>
-              <span>Qty: ${item.qty}</span>
+    cartItems.innerHTML = cart.map((item) => {
+      const p = productCatalog[item.id];
+      const imgStyle = p.img
+        ? `background-image:url(${p.img});background-size:cover;background-position:center top;`
+        : '';
+      const gradClass = p.img ? '' : p.gradient || '';
+      return `
+        <article class="cart-item">
+          <div class="cart-item-photo ${gradClass}" style="${imgStyle}"></div>
+          <div class="cart-item-info">
+            <p class="cart-item-name">${p.name}</p>
+            <p class="cart-item-price">${formatIDR(p.price)}</p>
+            <div class="cart-qty-row">
+              <button class="cart-qty-btn" onclick="updateQty('${p.id}', -1)">−</button>
+              <span class="cart-qty-num">${item.qty}</span>
+              <button class="cart-qty-btn" onclick="updateQty('${p.id}', 1)">+</button>
             </div>
-            <strong>${formatIDR(product.price * item.qty)}</strong>
-          </article>
-        `;
-      })
-      .join("");
+          </div>
+          <p class="cart-item-total">${formatIDR(p.price * item.qty)}</p>
+        </article>
+      `;
+    }).join("");
   }
 
   const cartSubtotal = subtotal(cart);
@@ -1051,6 +1097,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupLookTabs();
     startHeroSlider();
     setupBrandStrip();
+    renderInfluencerProducts();
   }
 
   renderShopPage();

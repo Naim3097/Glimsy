@@ -1193,12 +1193,85 @@ body[data-page="product"] .badge {
 .cart-item,
 .summary-item {
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 14px;
-  border-radius: 16px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 12px;
   background: #fcf7f9;
   border: 1px solid #f0e1e8;
+}
+
+.cart-item-photo {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: #f0e1e8;
+  background-size: cover;
+  background-position: center top;
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-price {
+  font-size: 0.76rem;
+  color: var(--muted, #888);
+  margin: 0 0 6px;
+}
+
+.cart-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-qty-btn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #e0cdd6;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cart-qty-btn:hover {
+  background: var(--secondary);
+}
+
+.cart-qty-num {
+  font-size: 0.82rem;
+  font-weight: 700;
+  min-width: 18px;
+  text-align: center;
+}
+
+.cart-item-total {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .summary-card h2 {
@@ -2284,8 +2357,8 @@ select {
 
 /* ─── Cart page ──────────────────────────────────────────────────────────── */
 body[data-page="cart"] h1 {
-  font-size: clamp(1.3rem, 2vw, 1.8rem);
-  margin-bottom: 8px;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  margin-bottom: 6px;
 }
 
 body[data-page="cart"] .btn {
