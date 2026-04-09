@@ -2282,7 +2282,43 @@ select {
 .brand-arrow-prev { margin-right: 10px; }
 .brand-arrow-next { margin-left: 10px; }
 
-/* ─── Influencer page: Shop her picks product grid ──────────────────────── */
+/* ─── Cart page ──────────────────────────────────────────────────────────── */
+body[data-page="cart"] h1 {
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  margin-bottom: 8px;
+}
+
+body[data-page="cart"] .btn {
+  font-size: 0.82rem;
+  padding: 11px 16px;
+  font-weight: 600;
+}
+
+body[data-page="cart"] .summary-card h2 {
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  margin-bottom: 12px;
+}
+
+body[data-page="cart"] .summary-row.total {
+  font-size: 0.95rem;
+}
+
+/* ─── Cart page ─ mobile ──────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  body[data-page="cart"] h1 {
+    font-size: 1.25rem;
+  }
+
+  body[data-page="cart"] .btn {
+    font-size: 0.8rem;
+    padding: 10px 14px;
+  }
+
+  body[data-page="cart"] .summary-card h2 {
+    font-size: 0.95rem;
+  }
+}
+
 .inf-product-grid {
   display: flex;
   flex-direction: row;
