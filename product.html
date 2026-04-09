@@ -83,6 +83,7 @@
               <span class="size-pill">L</span>
               <span class="size-pill">XL</span>
             </div>
+            <button class="size-chart-link" id="size-chart-btn">📏 Size chart</button>
 
             <div class="cta-column">
               <button class="btn btn-primary full-width" id="add-to-cart" data-add-cart data-product="satin-midi-skirt">
@@ -151,5 +152,28 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Size chart modal -->
+    <div class="size-chart-overlay" id="size-chart-overlay" role="dialog" aria-modal="true" aria-label="Size chart">
+      <div class="size-chart-modal">
+        <button class="size-chart-close" id="size-chart-close" aria-label="Close">&times;</button>
+        <h3 class="size-chart-title">Size Chart</h3>
+        <p class="size-chart-note">Measurements in centimetres (cm)</p>
+        <div class="size-chart-table-wrap">
+          <table class="size-chart-table">
+            <thead>
+              <tr><th>Size</th><th>Chest</th><th>Waist</th><th>Hips</th><th>Length</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>S</td><td>82–86</td><td>64–68</td><td>88–92</td><td>98</td></tr>
+              <tr><td>M</td><td>87–91</td><td>69–73</td><td>93–97</td><td>100</td></tr>
+              <tr><td>L</td><td>92–96</td><td>74–78</td><td>98–102</td><td>102</td></tr>
+              <tr><td>XL</td><td>97–102</td><td>79–84</td><td>103–108</td><td>104</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="size-chart-tip">Tip: Measure around the fullest part of each area. If between sizes, size up.</p>
+      </div>
+    </div>
   </body>
 </html>

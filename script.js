@@ -479,6 +479,28 @@ function setupButtons() {
   });
 }
 
+function setupSizeChart() {
+  const btn = document.getElementById("size-chart-btn");
+  const overlay = document.getElementById("size-chart-overlay");
+  const closeBtn = document.getElementById("size-chart-close");
+  if (!btn || !overlay) return;
+
+  const open = () => {
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+  const close = () => {
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+  };
+
+  btn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) close(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+}
+
+
 function setupCheckoutForm() {
   const form = document.getElementById("checkout-form");
   if (!form) return;
@@ -1091,6 +1113,7 @@ function savePromo() {
 document.addEventListener("DOMContentLoaded", () => {
   setupThankYouPage();
   setupButtons();
+  setupSizeChart();
   renderProductPage();
   renderCartPage();
   renderCheckoutSummary();
