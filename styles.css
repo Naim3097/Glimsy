@@ -2284,16 +2284,23 @@ select {
 
 /* ─── Influencer page: Shop her picks product grid ──────────────────────── */
 .inf-product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.inf-product-grid::-webkit-scrollbar { display: none; }
 
 .inf-product-card {
   display: block;
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  flex: 0 0 calc(33.333% - 3px);
+  scroll-snap-align: start;
 }
 
 .inf-product-card:hover .inf-product-photo {
@@ -3019,8 +3026,10 @@ select {
     display: none;
   }
   body[data-page="influencer"] .inf-product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
+    gap: 3px;
+  }
+  body[data-page="influencer"] .inf-product-card {
+    flex: 0 0 calc(33.333% - 2px);
   }
   body[data-page="influencer"] .inf-product-info {
     padding: 4px 6px 6px;
