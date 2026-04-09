@@ -3052,11 +3052,12 @@ select {
    -------------------------------------------------------------- */
 @media (min-width: 641px) {
 
-  /* Full-width container on influencer page */
+  /* Constrained centered container — not full-bleed on wide screens */
   body[data-page="influencer"] .page-shell > .container {
     width: 100%;
-    max-width: 100%;
-    padding: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
   }
 
   /* Profile hero: no card styling */
@@ -3066,14 +3067,16 @@ select {
     box-shadow: none;
   }
 
-  /* Hero slider: proportional height */
+  /* Hero slider: proportional height, capped */
   body[data-page="influencer"] .hero-slider {
-    height: clamp(320px, 52vw, 620px);
+    height: clamp(280px, 42vw, 520px);
+    border-radius: 8px;
+    overflow: hidden;
   }
 
-  /* Profile box: horizontal padding since container is full-width */
+  /* Profile box: normal padding — container already has side padding */
   body[data-page="influencer"] .profile-box {
-    padding: 20px max(24px, 4vw);
+    padding: 20px 0;
   }
 
   /* Profile name: tame the big h1 */
@@ -3081,16 +3084,16 @@ select {
     font-size: clamp(1.3rem, 2vw, 1.8rem);
   }
 
-  /* Section blocks: flush edges */
+  /* Section blocks: small horizontal padding */
   body[data-page="influencer"] .section-block {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* Section headings: inset padding so text aligns nicely */
+  /* Section headings: no extra inset — container already has padding */
   body[data-page="influencer"] .section-block .section-heading {
-    padding-left: max(24px, 4vw);
-    padding-right: max(24px, 4vw);
+    padding-left: 0;
+    padding-right: 0;
   }
 
   /* Section h2: responsive, not oversized */
@@ -3098,20 +3101,20 @@ select {
     font-size: clamp(1rem, 1.5vw, 1.4rem);
   }
 
-  /* Instagram grid: no gap, no radius */
+  /* Instagram grid: tiny gap, slight radius */
   body[data-page="influencer"] .ig-grid {
-    gap: 0;
+    gap: 3px;
   }
   body[data-page="influencer"] .ig-card {
-    border-radius: 0;
+    border-radius: 4px;
   }
 
-  /* Her Looks video grid: no gap, no radius */
+  /* Her Looks video grid: small gap */
   body[data-page="influencer"] .card-grid.four-col {
-    gap: 0;
+    gap: 6px;
   }
   body[data-page="influencer"] .card-grid.four-col .visual.portrait-card {
-    border-radius: 0;
+    border-radius: 6px;
   }
 
   /* Show product overlay inside video on desktop too */
@@ -3146,13 +3149,18 @@ select {
     box-shadow: none;
   }
 
-  /* Promo banner: full-bleed, no radius */
+  /* Promo banner: slight radius */
   body[data-page="influencer"] .promo-banner-wrap {
     padding: 0;
   }
   body[data-page="influencer"] .promo-banner {
-    border-radius: 0;
+    border-radius: 8px;
     box-shadow: none;
+  }
+
+  /* Product scroll strip: show 5 cards on desktop */
+  body[data-page="influencer"] .inf-product-card {
+    flex: 0 0 calc(20% - 4px);
   }
 }
 
