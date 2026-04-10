@@ -2119,24 +2119,65 @@ select {
 
 /* ─── Influencers Listing Page ──────────────────────────────────────────── */
 .inf-list-header {
-  padding: 40px 0 0;
-  margin-bottom: 28px;
+  padding: 24px 0 0;
+  margin-bottom: 16px;
+}
+
+.inf-list-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .inf-list-header h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  margin: 0 0 5px;
+  margin: 0 0 3px;
 }
 
 .inf-list-header p {
   color: #9a7a8a;
-  font-size: 0.96rem;
+  font-size: 0.88rem;
   margin: 0;
 }
 
-.inf-list-toolbar {
-  margin-bottom: 16px;
+.inf-search-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.inf-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.inf-search-input {
+  width: 220px;
+  padding: 9px 14px 9px 34px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-family: inherit;
+  color: var(--text);
+  background: white;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.inf-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(191, 143, 168, 0.15);
+}
+
+.inf-search-input::placeholder {
+  color: #c0a0b0;
 }
 
 .inf-grid {
@@ -2817,13 +2858,6 @@ body[data-page="checkout"] .summary-row.total {
     max-width: 260px;
   }
 
-  /* Influencer filter toolbar: scroll horizontally on smaller screens */
-  .inf-list-toolbar {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-  }
-
   /* Reduce page header h1 on tablet */
   .shop-page-header h1,
   .inf-list-header h1 {
@@ -2891,37 +2925,28 @@ body[data-page="checkout"] .summary-row.total {
   /* === Shop & influencer page headers === */
   .shop-page-header,
   .inf-list-header {
-    padding: 20px 0 0;
-    margin-bottom: 14px;
+    padding: 16px 0 0;
+    margin-bottom: 10px;
   }
   .shop-page-header h1,
   .inf-list-header h1 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
   }
   .shop-page-header p,
   .inf-list-header p {
-    font-size: 0.88rem;
+    font-size: 0.84rem;
   }
-
-  /* === Category filter pills === */
-  .cat-pill {
-    padding: 7px 13px;
-    font-size: 0.78rem;
+  .inf-list-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
-
-  /* === Filter pill rows: scroll horizontally instead of wrapping === */
-  .shop-toolbar .cat-filters,
-  .inf-list-toolbar .cat-filters {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 6px;
-    scrollbar-width: none;
+  .inf-search-wrap {
     width: 100%;
   }
-  .shop-toolbar .cat-filters::-webkit-scrollbar,
-  .inf-list-toolbar .cat-filters::-webkit-scrollbar {
-    display: none;
+  .inf-search-input {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   /* === Shop toolbar gap on mobile === */

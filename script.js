@@ -635,10 +635,15 @@ function renderInfluencersPage() {
   const countEl = document.getElementById('inf-count');
   if (!grid) return;
 
-  let active = 'all';
+  let query = '';
 
-  function render(cat) {
-    const list = cat === 'all' ? influencersList : influencersList.filter(i => i.cat.includes(cat));
+  function render(q) {
+    const term = q.trim().toLowerCase();
+    const list = term
+      ? influencersList.filter(i =>
+          i.name.toLowerCase().includes(term) || i.handle.toLowerCase().includes(term)
+        )
+      : influencersList;
     if (countEl) countEl.textContent = `${list.length} influencer${list.length !== 1 ? 's' : ''}`;
     grid.innerHTML = list.map(inf => {
       const isFollowing = followedInfluencers.has(inf.id);
@@ -683,17 +688,16 @@ function renderInfluencersPage() {
     }).join('');
   }
 
-  render(active);
+  render(query);
 
-  // Category filter
-  document.querySelectorAll('[data-inf-cat]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-inf-cat]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      active = btn.dataset.infCat;
-      render(active);
+  // Search
+  const searchInput = document.getElementById('inf-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      query = searchInput.value;
+      render(query);
     });
-  });
+  }
 
   // Follow toggle via event delegation
   grid.addEventListener('click', e => {
