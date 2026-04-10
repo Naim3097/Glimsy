@@ -2947,9 +2947,9 @@ body[data-page="checkout"] .summary-row.total {
 
   /* === Shop toolbar gap on mobile === */
   .shop-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 6px;
-    flex-wrap: nowrap;
-    align-items: center;
   }
   .cat-filters {
     flex-wrap: nowrap;
@@ -2957,16 +2957,14 @@ body[data-page="checkout"] .summary-row.total {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: 2px;
-    flex: 1;
-    min-width: 0;
+    width: 100%;
   }
   .cat-filters::-webkit-scrollbar {
     display: none;
   }
   .shop-sort select {
-    flex-shrink: 0;
-    font-size: 0.74rem;
-    padding: 5px 10px;
+    font-size: 0.78rem;
+    padding: 6px 12px;
   }
 
   /* === Profile: smaller avatar, tighter padding === */
