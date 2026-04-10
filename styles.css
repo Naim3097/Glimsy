@@ -3952,7 +3952,7 @@ body[data-page="home"] .ootd-reel {
   display: block;
 }
 body[data-page="home"] .ootd-thumb {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   position: relative;
   border-radius: 6px;
