@@ -653,27 +653,29 @@ function renderInfluencersPage() {
       ).join('');
       return `
         <div class="inf-card">
-          <div class="inf-card-banner">
-            ${bannerImg}
-            <div class="inf-card-avatar-wrap">${avatarEl}</div>
-          </div>
+          <div class="inf-card-banner">${bannerImg}</div>
           <div class="inf-card-body">
-            <div class="inf-card-top-row">
-              <div>
-                <h3 class="inf-card-name">${inf.name}</h3>
-                <p class="inf-card-handle">${inf.handle}</p>
+            <div class="inf-card-profile-row">
+              <div class="inf-card-avatar-col">${avatarEl}</div>
+              <div class="inf-card-info-col">
+                <div class="inf-card-top-row">
+                  <div>
+                    <h3 class="inf-card-name">${inf.name}</h3>
+                    <p class="inf-card-handle">${inf.handle}</p>
+                  </div>
+                  <button
+                    class="inf-follow-btn${isFollowing ? ' following' : ''}"
+                    data-follow-id="${inf.id}"
+                    aria-label="Follow ${inf.name}"
+                  >${isFollowing ? 'Following' : 'Follow'}</button>
+                </div>
+                <div class="inf-card-stats">
+                  <span><strong>${inf.followers}</strong> followers</span>
+                  <span><strong>${inf.posts}</strong> posts</span>
+                </div>
+                <p class="inf-card-niche">${inf.niche}</p>
               </div>
-              <button
-                class="inf-follow-btn${isFollowing ? ' following' : ''}"
-                data-follow-id="${inf.id}"
-                aria-label="Follow ${inf.name}"
-              >${isFollowing ? 'Following' : 'Follow'}</button>
             </div>
-            <div class="inf-card-stats">
-              <span><strong>${inf.followers}</strong> followers</span>
-              <span><strong>${inf.posts}</strong> posts</span>
-            </div>
-            <p class="inf-card-niche">${inf.niche}</p>
             <div class="inf-card-products">${productSquares}</div>
             <a class="inf-view-btn" href="${inf.profileUrl}">View Profile &rarr;</a>
           </div>

@@ -2151,6 +2151,7 @@ select {
   background: white;
   border: 1px solid var(--line);
   border-radius: 22px;
+  overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform 0.22s, box-shadow 0.22s;
   display: flex;
@@ -2164,11 +2165,10 @@ select {
 
 .inf-card-banner {
   position: relative;
-  height: 130px;
+  height: 90px;
   overflow: hidden;
   background: linear-gradient(135deg, #f8dfe9, #faf6ef);
   flex-shrink: 0;
-  border-radius: 22px 22px 0 0;
 }
 
 .inf-card-banner-img {
@@ -2184,16 +2184,25 @@ select {
   transform: scale(1.06);
 }
 
-.inf-card-avatar-wrap {
-  position: absolute;
-  bottom: -28px;
-  left: 20px;
-  z-index: 2;
+.inf-card-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.inf-card-avatar-col {
+  flex-shrink: 0;
+}
+
+.inf-card-info-col {
+  flex: 1;
+  min-width: 0;
 }
 
 .inf-card-avatar {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: 3px solid white;
   object-fit: cover;
@@ -2204,8 +2213,8 @@ select {
 }
 
 .inf-card-avatar-placeholder {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: 3px solid white;
   background: linear-gradient(135deg, var(--primary), #dba5c0);
@@ -2218,7 +2227,7 @@ select {
 }
 
 .inf-card-body {
-  padding: 38px 20px 16px;
+  padding: 16px 20px 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
