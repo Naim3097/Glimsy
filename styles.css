@@ -1878,13 +1878,13 @@ select {
   color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin: 0 0 3px;
+  margin: 0 0 1px;
 }
 
 .shop-card-name {
   font-size: 0.84rem;
   font-weight: 700;
-  margin: 0 0 5px;
+  margin: 0 0 2px;
   line-height: 1.25;
   color: var(--text);
   display: -webkit-box;
@@ -1897,7 +1897,7 @@ select {
   display: flex;
   align-items: center;
   gap: 3px;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .shop-star {
