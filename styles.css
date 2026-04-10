@@ -3935,6 +3935,23 @@ body[data-page="home"] .feed-card .visual {
   border-radius: 0;
   border: none;
   min-height: 160px;
+  overflow: hidden;
+}
+body[data-page="home"] .feed-card .visual.feed-photo {
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+}
+body[data-page="home"] .feed-card .visual.feed-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
+}
+body[data-page="home"] .feed-card .visual.feed-photo .badge {
+  position: relative;
+  z-index: 1;
 }
 body[data-page="home"] .card-copy {
   padding: 8px 2px 0;
@@ -3975,6 +3992,14 @@ body[data-page="home"] .creator-avatar {
   width: 48px;
   height: 48px;
   font-size: 0.9rem;
+  overflow: hidden;
+}
+body[data-page="home"] .creator-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 body[data-page="home"] .creator-card h3 {
   font-size: 0.88rem;
@@ -4034,6 +4059,33 @@ body[data-page="home"] .chip-row {
 body[data-page="home"] .chip {
   padding: 5px 12px;
   font-size: 0.76rem;
+}
+
+/* Phone mockup: photo story card + tiles */
+body[data-page="home"] .mini-story-card {
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  color: #fff;
+}
+body[data-page="home"] .mini-story-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.6) 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+body[data-page="home"] .mini-story-card > * {
+  position: relative;
+  z-index: 1;
+}
+body[data-page="home"] .mini-tile {
+  background-size: cover;
+  background-position: center top;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.55);
+  border: none;
 }
 
 /* Phone mockup: hide below 768px */
