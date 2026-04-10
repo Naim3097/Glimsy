@@ -1873,7 +1873,7 @@ select {
 }
 
 .shop-card-cat {
-  font-size: 0.66rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
@@ -1882,7 +1882,7 @@ select {
 }
 
 .shop-card-name {
-  font-size: 0.84rem;
+  font-size: 0.76rem;
   font-weight: 700;
   margin: 0 0 2px;
   line-height: 1.25;
@@ -1901,7 +1901,7 @@ select {
 }
 
 .shop-star {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   color: #d9d9d9;
 }
 
@@ -1910,7 +1910,7 @@ select {
 }
 
 .stars-count {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   color: #9a7a8a;
 }
 
@@ -1922,13 +1922,13 @@ select {
 }
 
 .price-now {
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 800;
   color: var(--text);
 }
 
 .price-old {
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   color: #b0929e;
   text-decoration: line-through;
 }
