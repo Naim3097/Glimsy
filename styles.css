@@ -2942,6 +2942,29 @@ body[data-page="checkout"] .summary-row.total {
     box-sizing: border-box;
   }
 
+  /* === Shop product card info — smaller fonts === */
+  .shop-card-info {
+    padding: 6px 2px 0;
+  }
+  .shop-card-cat {
+    font-size: 0.58rem;
+  }
+  .shop-card-name {
+    font-size: 0.74rem;
+  }
+  .shop-star {
+    font-size: 0.62rem;
+  }
+  .stars-count {
+    font-size: 0.6rem;
+  }
+  .price-now {
+    font-size: 0.76rem;
+  }
+  .price-old {
+    font-size: 0.66rem;
+  }
+
   /* === Shop toolbar gap on mobile === */
   .shop-toolbar {
     flex-direction: column;
