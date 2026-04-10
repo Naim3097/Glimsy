@@ -1800,7 +1800,7 @@ select {
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  gap: 16px 12px;
   margin-bottom: 64px;
 }
 
@@ -1808,17 +1808,14 @@ select {
   display: block;
   text-decoration: none;
   color: var(--text);
-  border-radius: 18px;
-  overflow: hidden;
-  background: white;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  transition: transform 0.22s, box-shadow 0.22s;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transition: opacity 0.2s;
 }
 
 .shop-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(191, 143, 168, 0.2);
+  opacity: 0.88;
 }
 
 .shop-card-img-wrap {
@@ -1838,7 +1835,7 @@ select {
 }
 
 .shop-card:hover .shop-card-img {
-  transform: scale(1.07);
+  transform: scale(1.04);
 }
 
 .shop-disc-badge {
@@ -1872,7 +1869,7 @@ select {
 }
 
 .shop-card-info {
-  padding: 10px 12px 12px;
+  padding: 8px 2px 0;
 }
 
 .shop-card-cat {
