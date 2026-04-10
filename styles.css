@@ -2151,7 +2151,6 @@ select {
   background: white;
   border: 1px solid var(--line);
   border-radius: 22px;
-  overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform 0.22s, box-shadow 0.22s;
   display: flex;
@@ -2169,6 +2168,7 @@ select {
   overflow: hidden;
   background: linear-gradient(135deg, #f8dfe9, #faf6ef);
   flex-shrink: 0;
+  border-radius: 22px 22px 0 0;
 }
 
 .inf-card-banner-img {
