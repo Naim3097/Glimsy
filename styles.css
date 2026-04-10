@@ -2966,12 +2966,55 @@ body[data-page="checkout"] .summary-row.total {
     max-width: 128px;
   }
 
-  /* === Influencer listing card === */
+  /* === Influencer listing card — compact mobile === */
+  .inf-card-banner {
+    display: none;
+  }
+  .inf-card {
+    border-radius: 14px;
+  }
   .inf-card-body {
-    padding: 34px 14px 14px;
+    padding: 12px 14px 12px;
+  }
+  .inf-card-profile-row {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .inf-card-avatar,
+  .inf-card-avatar-placeholder {
+    width: 48px;
+    height: 48px;
+    border: 2px solid white;
+    font-size: 1rem;
   }
   .inf-card-name {
-    font-size: 0.94rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .inf-card-handle {
+    font-size: 0.7rem;
+  }
+  .inf-follow-btn {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+  .inf-card-stats {
+    font-size: 0.7rem;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .inf-card-niche {
+    font-size: 0.74rem;
+    margin-bottom: 8px;
+  }
+  .inf-card-products {
+    gap: 3px;
+    margin-bottom: 8px;
+  }
+  .inf-view-btn {
+    padding: 7px;
+    font-size: 0.76rem;
+    border-radius: 8px;
   }
 
   /* === Section heading alignment === */
